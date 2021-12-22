@@ -1,0 +1,47 @@
+{% extends 'social/layout.html' %}
+{% block content %}
+
+<head>
+    <style>
+        .margin-auto {
+            position: static;
+            /*border: 4px solid red;*/
+            margin: 5px 150px;
+            padding: auto;
+            width:auto;
+            background: transparent;
+            text-align: center;
+        }
+
+        .margin-auto__content {
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .margin-auto__content2 {
+            text-decoration: underline;
+            color: blue;
+            font-size: 17px;
+        }
+
+        .margin-auto__content2:hover {
+            color:purple;
+        }
+
+    </style>
+</head>
+
+<form class="form" method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+
+    <button type="submit" id="submit">Login</button>
+</form>
+<div class="margin-auto">
+    <div class="margin-auto__content"> ¿Todavia no tienes una cuenta? 
+         <a href="{% url 'register' %}" class="margin-auto__content2">Registrate</a> 
+    </div>
+
+</div>
+
+{% endblock %}
